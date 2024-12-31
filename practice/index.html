@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable Radio Button</title>
+  <style>
+    /* Style the label to look like a radio button */
+    .radio-label {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      padding-left: 30px;
+      margin-right: 10px;
+    }
+
+    /* Style the actual radio input */
+    .radio-input {
+      display: none;
+    }
+
+    /* Style the radio button indicator (circle) */
+    .radio-indicator {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    /* Style the radio button indicator when selected */
+    .radio-input:checked + .radio-label .radio-indicator::after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      background-color: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+
+    /* Style the editable text input */
+    .editable-text {
+      border: none;
+      border-bottom: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <label class="radio-label">
+    <input type="radio" class="radio-input" name="radioGroup" />
+    <div class="radio-indicator"></div>
+    <input type="text" class="editable-text" placeholder="Edit me" />
+  </label>
+
+  <label class="radio-label">
+    <input type="radio" class="radio-input" name="radioGroup" />
+    <div class="radio-indicator"></div>
+    <input type="text" class="editable-text" placeholder="Edit me" />
+  </label>
+
+  <script>
+    // Add event listeners to update radio button when text is edited
+    const editableTextFields = document.querySelectorAll('.editable-text');
+    
+    editableTextFields.forEach((textField) => {
+      textField.addEventListener('input', (event) => {
+        const radioInput = event.target.closest('.radio-label').querySelector('.radio-input');
+        radioInput.value = event.target.value;
+      });
+    });
+  </script>
+</body>
+</html>

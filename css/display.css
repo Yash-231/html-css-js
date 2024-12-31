@@ -1,0 +1,44 @@
+/*Take out the comments around each rule.
+
+Try changing the display property*/
+span{
+    background-color: rgba(208, 255, 0, 0.664);
+    height: 105px;
+    display: block;
+}
+
+p{
+    text-align: center;
+    width: 100px;
+    /* height: max-content; */
+    border: 5px solid #961616;
+    background-color: yellow;
+    padding: 15px;
+    margin: auto 0;
+    display: inline-block;
+}
+
+hr{
+    clear: both;
+}
+
+div{
+    width: 27%;
+    margin: 20px;
+    padding: 25px;
+    float: left;
+    display: inline;
+    background-color: green;
+    /* overflow:scroll; */
+}
+
+a{
+    display: block;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0006cc;
+    width: 200px;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+}
